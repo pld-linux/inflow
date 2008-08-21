@@ -12,6 +12,7 @@ BuildRequires:	sed
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir	/etc/%{name}
+%define		_pkgdir		%{_var}/lib/%{name}
 
 %description
 The inflow package is a set of currently four scripts written to find
@@ -29,7 +30,7 @@ are available, with special emphasis given to the alt.* groups.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_bindir},%{perl_privlib}}
+install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_bindir},%{perl_privlib},%{_pkgdir}}
 
 install inflow-collect inflow-plot inflow-stat outflow-stat $RPM_BUILD_ROOT%{_bindir}
 install inflow.conf olm-lookup $RPM_BUILD_ROOT%{_sysconfdir}
@@ -45,3 +46,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(640,root,news) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*
 %attr(755,root,root) %{_bindir}/*
 %{perl_privlib}/%{name}.pm
+%attr(750,root,news) %dir %{_pkgdir}
