@@ -44,6 +44,7 @@ install inflow.pm $RPM_BUILD_ROOT%{perl_privlib}
 
 cat > $RPM_BUILD_ROOT/etc/cron.d/%{name} << EOF
 0 * * * *	news	%{_bindir}/inflow-collect -cs
+0 * * * *	news	%{_bindir}/outflow-stat -wF
 EOF
 
 %clean
