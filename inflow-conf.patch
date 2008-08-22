@@ -1,0 +1,93 @@
+--- ./inflow.conf.org	2008-08-22 14:54:21.285757770 +0200
++++ ./inflow.conf	2008-08-22 14:54:13.302009858 +0200
+@@ -40,8 +40,8 @@ $INFLOWURL  = "ftp://ftp.switch.ch/info_
+ # local HTML stuff: you can put custom header & footer information into
+ #                   local files; optional...
+ #
+-$HTMLHEADER = "/home/news/config/inflowhtmlheader";
+-$HTMLFOOTER = "/home/news/config/inflowhtmlfooter";
++$HTMLHEADER = "/etc/inflow/inflowhtmlheader";
++$HTMLFOOTER = "/etc/inflow/inflowhtmlfooter";
+ #
+ $BGCOLDARK  = "#00E0FF";        # cell background dark
+ $BGCOLLIGHT = "#80F0FF";        # cell background light
+@@ -50,11 +50,11 @@ $BGCOLLIGHT = "#80F0FF";        # cell b
+ # The actual version of the global table can be downloaded from 
+ #   ftp://ftp.switch.ch/info_service/netnews/olm-lookup
+ #
+-$URLLOOKUP = "/home/news/config/olm-lookup";       # global
++$URLLOOKUP = "/etc/inflow/olm-lookup";       # global
+ $URLLUPLOC = ""; # local 
+ #
+ # host filter list (optional), to be used with -r option
+-$HOSTFILTER= "/home/news/config/inflow.hostlist";
++$HOSTFILTER= "/etc/inflow/inflow.hostlist";
+ #
+ # file naming
+ #
+@@ -62,24 +62,24 @@ $WANTHOSTNAME = 0;       # add hostname 
+ #
+ # paths...
+ #
+-$HTMLDIR   = "/opt/www/htdocs/news/status";  # where to put HTML output
+-$TEXTDIR   = "/home/news/status";        # where to put ASCII output
++$HTMLDIR   = "/var/lib/inflow/status";  # where to put HTML output
++$TEXTDIR   = "/var/lib/inflow/status";        # where to put ASCII output
+ 
+ # 
+ # inflow-collect -------------------------------------------------
+ 
+-$BATCHDIR  = "/var/news/out.going";  # where INN puts data
++$BATCHDIR  = "/var/spool/news/outgoing";  # where INN puts data
+ $CHANNEL   = "INFLOW";
+-$SUMDIR    = "/home/news/inflow";    # summaries from previous periods
++$SUMDIR    = "/var/lib/inflow";    # summaries from previous periods
+ $SUMFILE   = "inflow.sum";
+ #
+-$HOURDIR   = "/home/news/inflow/hour";  # dir for hourly summaries
++$HOURDIR   = "/var/lib/inflow/hour";  # dir for hourly summaries
+ $ROUNDTIME = 1;                         # round down hour file names to nearest
+                                         # 10 minutes (ex: ..-1401 -> ..1400)
+                                         # to get coherent data sequences
+ $TELLDUBIOUS = 0;                       # whether to warn for negative delays
+ #
+-$CTLINND   = "/home/news/inn/bin/ctlinnd";
++$CTLINND   = "/usr/bin/ctlinnd";
+ $TIMEOUT   = 180;               # ctlinnd timeout
+ $MAXAGE    = 20;                # minutes after midnight after which to cycle
+                                 # result file; sounds complicated, but this
+@@ -109,7 +109,7 @@ $PLOTSCRIPT = "inflow-plot -w"; # script
+ 
+ # inflow-plot ----------------------------------------------------
+ 
+-$WORKDIR      = "/opt/www/htdocs/news/status/pics";  # dir to write pictures
++$WORKDIR      = "/var/lib/inflow/status/pics";  # dir to write pictures
+ $PIC1         = "$WORKDIR/arthourpic";        # articles per hour
+ $PIC2         = "$WORKDIR/artcumpic";         # articles cumulative
+ $PIC3         = "$WORKDIR/volhourpic";        # volume per hour
+@@ -128,12 +128,8 @@ $THRESHOLDW   = 5;    # same for weekly 
+ $RESOLVCONF = "/etc/resolv.conf";
+ 
+ # innfeed stuff
+-$IFSPOOLDIR   = "/var/news/innfeed";
+-@INNFEEDCONF  = ( '/home/news/config/innfeed1.conf',
+-                 '/home/news/config/innfeed2.conf',
+-                 '/home/news/config/innfeed3.conf',
+-		 '/home/news/config/innfeed4.conf',
+-                 );
++$IFSPOOLDIR   = "/var/spool/news/outgoing";
++@INNFEEDCONF  = ( '/etc/news/innfeed.conf' );
+ $OLDCONFSTYLE = 0;       # pre-0.10 innfeed uses old format for innfeed.conf
+ $CHKPT_FL     = 0;       # some innfeed versions use .checkpoint files
+                          # some use .input for storing checkpoint info (>0.9.3)
+@@ -145,8 +141,8 @@ $THRES_MAGIC = 6500000;  # do exact line
+                          # threshold else do approximate line count
+ #
+ # nntpsend stuff
+-$NSSPOOLDIR   = "/var/news/out.going";
+-@NNTPSENDCONF = ( '/home/news/config/nntpsend.ctl',);
++$NSSPOOLDIR   = "/var/spool/news/outgoing";
++@NNTPSENDCONF = ( '/etc/news/nntpsend.ctl',);
+ @NSPOSTFIXES  = ( '', '!n', '.work', '.nntp' );
+ #
+ # naming stuff

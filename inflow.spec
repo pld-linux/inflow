@@ -2,11 +2,13 @@
 Summary:	inflow - flow stats for INN
 Name:		inflow
 Version:	2.4.0
-Release:	0.9
+Release:	1
 License:	GPL v2+
 Group:		Networking/Daemons
 Source0:	ftp://ftp.uni-kassel.de/pub/net/news/unix/inflow/%{name}-%{version}.tar.gz
 # Source0-md5:	8eeb022187585aeb34f759c4d1203f92
+Patch0:		%{name}-config_location.patch
+Patch1:		%{name}-conf.patch
 BuildRequires:	rpm-perlprov
 BuildRequires:	sed
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -23,6 +25,8 @@ are available, with special emphasis given to the alt.* groups.
 
 %prep
 %setup -q -c
+%patch0 -p1
+%patch1 -p1
 
 %build
 %{__sed} -i -e 's@#! /bin/perl@#!/usr/bin/perl@' *

@@ -1,0 +1,44 @@
+--- ./inflow-stat.org	2008-08-21 16:57:36.587200193 +0200
++++ ./inflow-stat	2008-08-22 14:38:06.802106386 +0200
+@@ -38,7 +38,7 @@ $RELEASE = "V2.4.0";
+ #
+ # local settings ----------------------------------------------------
+ #
+-$INFLOWCONF = "/home/news/config/inflow.conf"; # ext. local configs (optional)
++$INFLOWCONF = "/etc/inflow/inflow.conf"; # ext. local configs (optional)
+ #
+ # the following settings may be modified by an external config file
+ #
+--- ./inflow-collect.org	2008-08-22 14:38:26.992311655 +0200
++++ ./inflow-collect	2008-08-22 14:39:10.628766794 +0200
+@@ -46,7 +46,7 @@ $RELEASE = "V2.4.0";
+ 
+ # config section -------------------------------------------------
+ #
+-$INFLOWCONF = "/home/news/config/inflow.conf"; # ext. local configs (optional)
++$INFLOWCONF = "/etc/inflow/inflow.conf"; # ext. local configs (optional)
+ #
+ # the following settings may be modified by an external config file
+ #
+--- ./inflow-plot.org	2008-08-22 14:39:21.035431539 +0200
++++ ./inflow-plot	2008-08-22 14:39:40.752099810 +0200
+@@ -33,7 +33,7 @@ $RELEASE = "V2.2.0";
+ 
+ ## ---- begin config section -------------------------------------------------
+ ##
+-$INFLOWCONF = "/home/news/config/inflow.conf"; # ext. local configs (optional)
++$INFLOWCONF = "/etc/inflow/inflow.conf"; # ext. local configs (optional)
+ ##
+ ## the following settings may be modified by an external config file
+ ##
+--- ./outflow-stat.org	2008-08-22 14:40:11.325426850 +0200
++++ ./outflow-stat	2008-08-22 14:40:02.485427182 +0200
+@@ -39,7 +39,7 @@ $RELEASE = "V2.3.1";
+ 
+ ## local settings ----------------------------------------------------
+ #
+-$INFLOWCONF = "/home/news/config/inflow.conf"; # ext. local configs (optional)
++$INFLOWCONF = "/etc/inflow/inflow.conf"; # ext. local configs (optional)
+ #
+ ## the following settings may be modified here or alternativly using
+ #  an external config file; the latter method makes updates more comfortable...
