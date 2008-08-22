@@ -1,0 +1,74 @@
+--- ./inflow-plot.org	2008-08-22 15:14:34.948553500 +0200
++++ ./inflow-plot	2008-08-22 15:18:13.455198337 +0200
+@@ -113,12 +113,12 @@ $thishour = (localtime($timenow))[2];
+ $thisminute = (localtime($timenow))[1];
+ $suffix = $opt_r ? "-r" : "";               
+ $suffix .= $WANTHOSTNAME ? "-$hostname" : "";
+-$PIC1 = $PIC1 . $suffix . ".gif";
+-$PIC2 = $PIC2 . $suffix . ".gif";
+-$PIC3 = $PIC3 . $suffix . ".gif";
+-$PIC4 = $PIC4 . $suffix . ".gif";
+-$PIC5 = $PIC5 . $suffix . ".gif";
+-$PIC6 = $PIC6 . $suffix . ".gif";
++$PIC1 = $PIC1 . $suffix . ".png";
++$PIC2 = $PIC2 . $suffix . ".png";
++$PIC3 = $PIC3 . $suffix . ".png";
++$PIC4 = $PIC4 . $suffix . ".png";
++$PIC5 = $PIC5 . $suffix . ".png";
++$PIC6 = $PIC6 . $suffix . ".png";
+ 
+ #
+ # process files ----------------------------------------------------
+@@ -285,7 +285,7 @@ sub plotartperhour {
+       }
+       $pic->add_dataset(@datarow);
+    }
+-   $pic->gif ("$PIC1");
++   $pic->png ("$PIC1");
+ 
+ }
+ 
+@@ -324,7 +324,7 @@ sub plotartcum {
+       }
+       $pic->add_dataset(@datarow);
+    }
+-   $pic->gif ("$PIC2");
++   $pic->png ("$PIC2");
+ 
+ }
+ 
+@@ -361,7 +361,7 @@ sub plotvolperhour {
+       }
+       $pic->add_dataset(@datarow);
+    }
+-   $pic->gif ("$PIC3");
++   $pic->png ("$PIC3");
+ 
+ }
+ 
+@@ -400,7 +400,7 @@ sub plotvolcum {
+       }
+       $pic->add_dataset(@datarow);
+    }
+-   $pic->gif ("$PIC4");
++   $pic->png ("$PIC4");
+ 
+ }
+ 
+@@ -439,7 +439,7 @@ sub plotartweek {
+       }
+       $pic->add_dataset(@datarow);
+    }
+-   $pic->gif ("$PIC5");
++   $pic->png ("$PIC5");
+ 
+ }
+ 
+@@ -478,6 +478,6 @@ sub plotvolweek {
+       }
+       $pic->add_dataset(@datarow);
+    }
+-   $pic->gif ("$PIC6");
++   $pic->png ("$PIC6");
+ }
+ 
