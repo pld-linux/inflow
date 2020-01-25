@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.perl
 Summary:	inflow - flow stats for INN
 Name:		inflow
 Version:	2.4.0
